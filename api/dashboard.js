@@ -8,3 +8,24 @@ export default function handler(req, res) {
     revenue: 649
   });
 }
+function updateMetric(type, value) {
+
+  if (type === 'bookings') {
+    const el = document.getElementById('bookings-value');
+    if (el) el.textContent = value;
+  }
+
+  if (type === 'revenue') {
+    const el = document.getElementById('revenue-value');
+    if (el) el.textContent = value;
+  }
+
+  if (type === 'unread') {
+    const el = document.getElementById('unread-value');
+    if (el) el.textContent = value;
+
+    const alert = document.querySelector('.alert-red');
+    if (alert) alert.textContent = `🔴 ${value} unread messages`;
+  }
+
+}
